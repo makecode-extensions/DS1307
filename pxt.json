@@ -1,0 +1,17 @@
+{
+    "name": "DS1307",
+    "version": "1.0.0",
+    "description": "makecode DS1307 RTC Package for micro:bit",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "main.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true
+}
