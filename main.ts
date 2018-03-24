@@ -138,7 +138,7 @@ namespace DS1307 {
     //% block
     //% dat.min=1 dat.max=7
     export function setWeekday(dat: number): void {
-        setReg(DS1307_REG_DAY, DecToHex(dat % 8))
+        setReg(DS1307_REG_WEEKDAY, DecToHex(dat % 8))
     }
 
     /**
