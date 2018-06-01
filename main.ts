@@ -226,13 +226,13 @@ namespace DS1307 {
     export function DateTime(year: number, month: number, day: number, weekday: number, hour: number, minute: number, second: number): void {
         let buf = pins.createBuffer(8);
         buf[0] = DS1307_REG_SECOND;
-        buf[1] = second % 60;
-        buf[2] = minute % 60;
-        buf[3] = hour % 24;
-        buf[4] = weekday % 8;
-        buf[5] = day % 32;
-        buf[6] = month % 13;
-        buf[7] = year % 100;
+        buf[1] = DecToHex(second % 60);
+        buf[2] = DecToHex(minute % 60);
+        buf[3] = DecToHex(hour % 24);
+        buf[4] = DecToHex(weekday % 8);
+        buf[5] = DecToHex(day % 32);
+        buf[6] = DecToHex(month % 13);
+        buf[7] = DecToHex(year % 100);
         pins.i2cWriteBuffer(DS1307_I2C_ADDR, buf)
     }
 
