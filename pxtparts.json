@@ -1,0 +1,69 @@
+{
+  "DS1307": {
+    "visual": {
+      "image": "parts/ds1307.svg",
+      "width": 68,
+      "height": 85,
+      "pinDistance": 7.2,
+      "pinLocations": [
+        {
+          "x": 63,
+          "y": 5
+        },
+        {
+          "x": 55.8,
+          "y": 5
+        },
+        {
+          "x": 48.6,
+          "y": 5
+        },
+        {
+          "x": 41.4,
+          "y": 5
+        }      ]
+    },
+    "numberOfPins": 4,
+    "instantiation": {
+      "kind": "function",
+      "fullyQualifiedName": "DS1307.DateTime,DS1307.setSecond,DS1307.getSecond,DS1307.setMinute,DS1307.getMinute,DS1307.setHour,DS1307.getHour,DS1307.setWeekday,DS1307.getWeekday,DS1307.setDay,DS1307.getDay,DS1307.setMonth,DS1307.getMonth,DS1307.setYear,DS1307.getYear",
+      "argumentRoles": [
+        {
+          "pinInstantiationIdx": 0
+        }
+      ]
+    },
+    "pinDefinitions": [
+      {
+        "target": "ground",
+        "style": "male",
+        "orientation": "+Y"
+      },
+      {
+        "target": "threeVolt",
+        "style": "male",
+        "orientation": "+Y"
+      },
+      {
+        "target": "SDA",
+        "style": "male",
+        "orientation": "+Y"
+      },
+      {
+        "target": "SCL",
+        "style": "male",
+        "orientation": "+Y"
+      }
+    ],
+    "assembly": [
+      {
+        "pinIndices": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    ]
+  }
+}

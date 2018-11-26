@@ -7,7 +7,7 @@
 /**
  * DS1307 block
  */
-//% weight=100 color=#8000f0 icon="\uf017" block="DS1307"
+//% weight=20 color=#8010f0 icon="\uf017" block="DS1307"
 namespace DS1307 {
     let DS1307_I2C_ADDR = 104;
     let DS1307_REG_SECOND = 0
@@ -57,6 +57,7 @@ namespace DS1307 {
      */
     //% blockId="DS1307_START" block="start"
     //% weight=52 blockGap=8 
+    //% parts=DS1307 trackArgs=0
     export function start() {
         let t = getSecond()
         setSecond(t & 0x7f)
@@ -67,6 +68,7 @@ namespace DS1307 {
      */
     //% blockId="DS1307_STOP" block="pause"
     //% weight=51 blockGap=8 
+    //% parts=DS1307 trackArgs=0
     export function stop() {
         let t = getSecond()
         setSecond(t | 0x80)
@@ -77,6 +79,7 @@ namespace DS1307 {
      */
     //% blockId="DS1307_GET_YEAR" block="year"
     //% weight=99 blockGap=8 
+    //% parts=DS1307 trackArgs=0
     export function getYear(): number {
         return (HexToDec(getReg(DS1307_REG_YEAR)) + 2000)
     }
@@ -87,6 +90,7 @@ namespace DS1307 {
      */
     //% blockId="DS1307_SET_YEAR" block="set year %dat"
     //% weight=69 blockGap=8 
+    //% parts=DS1307 trackArgs=0
     export function setYear(dat: number): void {
         setReg(DS1307_REG_YEAR, DecToHex(dat % 100))
     }
@@ -96,6 +100,7 @@ namespace DS1307 {
      */
     //% blockId="DS1307_GET_MONTH" block="month"
     //% weight=98 blockGap=8 
+    //% parts=DS1307 trackArgs=0
     export function getMonth(): number {
         return HexToDec(getReg(DS1307_REG_MONTH))
     }
@@ -107,6 +112,7 @@ namespace DS1307 {
     //% blockId="DS1307_SET_MONTH" block="set month %dat"
     //% weight=68 blockGap=8
     //% dat.min=1 dat.max=12
+    //% parts=DS1307 trackArgs=0
     export function setMonth(dat: number): void {
         setReg(DS1307_REG_MONTH, DecToHex(dat % 13))
     }
@@ -116,6 +122,7 @@ namespace DS1307 {
      */
     //% blockId="DS1307_GET_DAY" block="day"
     //% weight=97 blockGap=8 
+    //% parts=DS1307 trackArgs=0
     export function getDay(): number {
         return HexToDec(getReg(DS1307_REG_DAY))
     }
@@ -127,6 +134,7 @@ namespace DS1307 {
     //% blockId="DS1307_SET_DAY" block="set day %dat"
     //% weight=67 blockGap=8
     //% dat.min=1 dat.max=31
+    //% parts=DS1307 trackArgs=0
     export function setDay(dat: number): void {
         setReg(DS1307_REG_DAY, DecToHex(dat % 32))
     }
@@ -136,6 +144,7 @@ namespace DS1307 {
      */
     //% blockId="DS1307_GET_WEEKDAY" block="weekday"
     //% weight=96 blockGap=8 
+    //% parts=DS1307 trackArgs=0
     export function getWeekday(): number {
         return HexToDec(getReg(DS1307_REG_WEEKDAY))
     }
@@ -147,6 +156,7 @@ namespace DS1307 {
     //% blockId="DS1307_SET_WEEKDAY" block="set weekday %dat"
     //% weight=66 blockGap=8
     //% dat.min=1 dat.max=7
+    //% parts=DS1307 trackArgs=0
     export function setWeekday(dat: number): void {
         setReg(DS1307_REG_WEEKDAY, DecToHex(dat % 8))
     }
@@ -156,6 +166,7 @@ namespace DS1307 {
      */
     //% blockId="DS1307_GET_HOUR" block="hour"
     //% weight=95 blockGap=8 
+    //% parts=DS1307 trackArgs=0
     export function getHour(): number {
         return HexToDec(getReg(DS1307_REG_HOUR))
     }
@@ -167,6 +178,7 @@ namespace DS1307 {
     //% blockId="DS1307_SET_HOUR" block="set hour %dat"
     //% weight=65 blockGap=8
     //% dat.min=0 dat.max=23
+    //% parts=DS1307 trackArgs=0
     export function setHour(dat: number): void {
         setReg(DS1307_REG_HOUR, DecToHex(dat % 24))
     }
@@ -176,6 +188,7 @@ namespace DS1307 {
      */
     //% blockId="DS1307_GET_MINUTE" block="minute"
     //% weight=94 blockGap=8 
+    //% parts=DS1307 trackArgs=0
     export function getMinute(): number {
         return HexToDec(getReg(DS1307_REG_MINUTE))
     }
@@ -187,6 +200,7 @@ namespace DS1307 {
     //% blockId="DS1307_SET_MINUTE" block="set minute %dat"
     //% weight=64 blockGap=8
     //% dat.min=0 dat.max=59
+    //% parts=DS1307 trackArgs=0
     export function setMinute(dat: number): void {
         setReg(DS1307_REG_MINUTE, DecToHex(dat % 60))
     }
@@ -196,6 +210,7 @@ namespace DS1307 {
      */
     //% blockId="DS1307_GET_SECOND" block="second"
     //% weight=93 blockGap=8 
+    //% parts=DS1307 trackArgs=0
     export function getSecond(): number {
         return HexToDec(getReg(DS1307_REG_SECOND))
     }
@@ -207,6 +222,7 @@ namespace DS1307 {
     //% blockId="DS1307_SET_SECOND" block="set second %dat"
     //% weight=63 blockGap
     //% dat.min=0 dat.max=59
+    //% parts=DS1307 trackArgs=0
     export function setSecond(dat: number): void {
         setReg(DS1307_REG_SECOND, DecToHex(dat % 60))
     }
@@ -223,6 +239,7 @@ namespace DS1307 {
      */
     //% blockId="DS1307_SET_DATETIME" block="set year %year|month %month|day %day|weekday %weekday|hour %hour|minute %minute|second %second"
     //% weight=60 blockGap
+    //% parts=DS1307 trackArgs=0
     export function DateTime(year: number, month: number, day: number, weekday: number, hour: number, minute: number, second: number): void {
         let buf = pins.createBuffer(8);
         buf[0] = DS1307_REG_SECOND;

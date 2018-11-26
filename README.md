@@ -1,21 +1,33 @@
 # DS1307
 
-makecode DS1307 RTC package for micro:bit  
+makecode DS1307 RTC extension for micro:bit.  
 
 Author: shaoziyang  
 Date:   2018.Mar  
-
-![](https://raw.githubusercontent.com/microbit-makecode-packages/DS1307/master/icon.png)  
   
-![](https://raw.githubusercontent.com/microbit-makecode-packages/DS1307/master/ds1307.jpg)
+  
+![](ds1307.jpg)
 
-## usage
+## Add extension
 
-open your microbit makecode project, in Add Package, paste  
+open your microbit makecode project, in Add extension, paste  
 
-https://github.com/microbit-makecode-packages/DS1307  
+https://github.com/makecode-packages/DS1307  
 
 to search box then search.
+
+
+## Basic usage
+```
+input.onButtonPressed(Button.A, () => {
+    DS1307.setSecond(0)
+})
+DS1307.start()
+basic.forever(() => {
+    basic.showNumber(DS1307.getSecond() % 10)
+    basic.pause(100)
+})
+```
 
 ## I2C Address  
 
@@ -71,7 +83,7 @@ get year.
 
 ## Demo
 
-![](https://raw.githubusercontent.com/microbit-makecode-packages/DS1307/master/demo.jpg)
+![](demo.jpg)
 
 ## License
 
