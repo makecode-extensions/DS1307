@@ -1,8 +1,8 @@
 /**
- * makecode DS1307 RTC Package.
- * From microbit/micropython Chinese community.
- * http://www.micropython.org.cn
- */
+* makecode DS1307 RTC Package.
+* From microbit/micropython Chinese community.
+* http://www.micropython.org.cn
+*/
 
 /**
  * DS1307 block
@@ -56,7 +56,7 @@ namespace DS1307 {
      * start ds1307 (go on)
      */
     //% blockId="DS1307_START" block="start"
-    //% weight=52 blockGap=8 
+    //% weight=52 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function start() {
         let t = getSecond()
@@ -67,7 +67,7 @@ namespace DS1307 {
      * stop ds1307 (pause)
      */
     //% blockId="DS1307_STOP" block="pause"
-    //% weight=51 blockGap=8 
+    //% weight=51 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function stop() {
         let t = getSecond()
@@ -78,7 +78,7 @@ namespace DS1307 {
      * get Year
      */
     //% blockId="DS1307_GET_YEAR" block="year"
-    //% weight=99 blockGap=8 
+    //% weight=99 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getYear(): number {
         return (HexToDec(getReg(DS1307_REG_YEAR)) + 2000)
@@ -89,7 +89,7 @@ namespace DS1307 {
      * @param dat is the Year will be set, eg: 2018
      */
     //% blockId="DS1307_SET_YEAR" block="set year %dat"
-    //% weight=69 blockGap=8 
+    //% weight=69 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function setYear(dat: number): void {
         setReg(DS1307_REG_YEAR, DecToHex(dat % 100))
@@ -99,10 +99,10 @@ namespace DS1307 {
      * get Month
      */
     //% blockId="DS1307_GET_MONTH" block="month"
-    //% weight=98 blockGap=8 
+    //% weight=98 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getMonth(): number {
-        return HexToDec(getReg(DS1307_REG_MONTH))
+        return Math.max(Math.min(HexToDec(getReg(DS1307_REG_MONTH)), 12), 1)
     }
 
     /**
@@ -121,10 +121,10 @@ namespace DS1307 {
      * get Day
      */
     //% blockId="DS1307_GET_DAY" block="day"
-    //% weight=97 blockGap=8 
+    //% weight=97 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getDay(): number {
-        return HexToDec(getReg(DS1307_REG_DAY))
+        return Math.max(Math.min(HexToDec(getReg(DS1307_REG_DAY)), 31), 1)
     }
 
     /**
@@ -143,10 +143,10 @@ namespace DS1307 {
      * get Week Day
      */
     //% blockId="DS1307_GET_WEEKDAY" block="weekday"
-    //% weight=96 blockGap=8 
+    //% weight=96 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getWeekday(): number {
-        return HexToDec(getReg(DS1307_REG_WEEKDAY))
+        return Math.max(Math.min(HexToDec(getReg(DS1307_REG_WEEKDAY)), 7), 1)
     }
 
     /**
@@ -165,10 +165,10 @@ namespace DS1307 {
      * get Hour
      */
     //% blockId="DS1307_GET_HOUR" block="hour"
-    //% weight=95 blockGap=8 
+    //% weight=95 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getHour(): number {
-        return HexToDec(getReg(DS1307_REG_HOUR))
+        return HexToDec(getReg(DS1307_REG_HOUR)) % 24
     }
 
     /**
@@ -187,10 +187,10 @@ namespace DS1307 {
      * get Minute
      */
     //% blockId="DS1307_GET_MINUTE" block="minute"
-    //% weight=94 blockGap=8 
+    //% weight=94 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getMinute(): number {
-        return HexToDec(getReg(DS1307_REG_MINUTE))
+        return HexToDec(getReg(DS1307_REG_MINUTE)) % 60
     }
 
     /**
@@ -209,10 +209,10 @@ namespace DS1307 {
      * get Second
      */
     //% blockId="DS1307_GET_SECOND" block="second"
-    //% weight=93 blockGap=8 
+    //% weight=93 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getSecond(): number {
-        return HexToDec(getReg(DS1307_REG_SECOND))
+        return HexToDec(getReg(DS1307_REG_SECOND)) % 60
     }
 
     /**
