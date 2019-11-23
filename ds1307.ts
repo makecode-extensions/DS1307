@@ -81,7 +81,7 @@ namespace DS1307 {
     //% weight=99 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getYear(): number {
-        return (HexToDec(getReg(DS1307_REG_YEAR)) + 2000)
+        return Math.min(HexToDec(getReg(DS1307_REG_YEAR)), 99) + 2000
     }
 
     /**
@@ -168,7 +168,7 @@ namespace DS1307 {
     //% weight=95 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getHour(): number {
-        return HexToDec(getReg(DS1307_REG_HOUR)) % 24
+        return Math.min(HexToDec(getReg(DS1307_REG_HOUR)), 23)
     }
 
     /**
@@ -190,7 +190,7 @@ namespace DS1307 {
     //% weight=94 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getMinute(): number {
-        return HexToDec(getReg(DS1307_REG_MINUTE)) % 60
+        return Math.min(HexToDec(getReg(DS1307_REG_MINUTE)), 59)
     }
 
     /**
@@ -212,7 +212,7 @@ namespace DS1307 {
     //% weight=93 blockGap=8
     //% parts=DS1307 trackArgs=0
     export function getSecond(): number {
-        return HexToDec(getReg(DS1307_REG_SECOND)) % 60
+        return Math.min(HexToDec(getReg(DS1307_REG_SECOND)), 59)
     }
 
     /**
